@@ -1,0 +1,16 @@
+{
+  "appId": "com.robocopyapp.app",
+  "productName": "RobocopyApp",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*"
+  ],
+  "win": {
+    "target": ["portable"],
+    "icon": null,
+    "requestedExecutionLevel": "requireAdministrator"
+  }
+}

@@ -1,0 +1,82 @@
+.container {
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 12px;
+  color: #996a00;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.disk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #996a00;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  padding: 8px 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.disk:hover:not(:disabled) {
+  background: #ffb00011;
+  border-color: #ffb00033;
+  color: #ffb000;
+}
+
+.disk.selected {
+  background: #ffb00022;
+  border-color: #ffb00066;
+  color: #ffc840;
+  text-shadow: 0 0 5px #ffc84088;
+}
+
+.disk:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.letter {
+  font-weight: bold;
+  color: #ffb000;
+  min-width: 35px;
+  font-size: 14px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.diskLabel {
+  font-size: 12px;
+}
+
+.size {
+  font-size: 10px;
+  color: #664400;
+}
+
+.loading, .error {
+  font-size: 12px;
+  color: #664400;
+  font-style: italic;
+  padding: 8px 0;
+}
+
+.error {
+  color: #ff6666;
+}

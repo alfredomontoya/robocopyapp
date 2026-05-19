@@ -1,0 +1,161 @@
+.container {
+  margin-bottom: 12px;
+  border: 1px solid #ffb00033;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.toggle {
+  width: 100%;
+  background: #ffb00011;
+  border: none;
+  color: #ffb000;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  padding: 8px 12px;
+  cursor: pointer;
+  text-align: left;
+  letter-spacing: 1px;
+  transition: background 0.15s ease;
+}
+
+.toggle:hover:not(:disabled) {
+  background: #ffb00022;
+}
+
+.toggle:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.arrow {
+  margin-right: 8px;
+  color: #996a00;
+}
+
+.panel {
+  padding: 12px;
+  background: #0a0a0a;
+  border-top: 1px solid #ffb00033;
+}
+
+.option {
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #ffb000;
+}
+
+.option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.option input[type="checkbox"] {
+  accent-color: #ffb000;
+  cursor: pointer;
+}
+
+.option input[type="checkbox"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.value {
+  margin-left: auto;
+  font-size: 11px;
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.numberInput {
+  width: 60px;
+  background: #0a0a0a;
+  border: 1px solid #ffb00044;
+  color: #ffb000;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 12px;
+  padding: 4px 6px;
+  outline: none;
+}
+
+.numberInput:focus {
+  border-color: #ffb000;
+}
+
+.numberInput:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.exclusions {
+  margin: 12px 0;
+  padding: 8px;
+  background: #ffb0000a;
+  border: 1px solid #ffb00022;
+  border-radius: 2px;
+}
+
+.cacheList {
+  margin: 4px 0 12px 24px;
+  padding: 6px 8px;
+  background: #ff660011;
+  border: 1px solid #ff660033;
+  border-radius: 2px;
+}
+
+.cacheLabel {
+  display: block;
+  font-size: 11px;
+  color: #ff9944;
+  margin-bottom: 4px;
+}
+
+.cacheItems {
+  font-size: 10px;
+  color: #ffb000;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.exclLabel {
+  display: block;
+  font-size: 11px;
+  color: #996a00;
+  margin-bottom: 4px;
+}
+
+.exclList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exclItem {
+  font-size: 10px;
+  color: #996a00;
+  word-break: break-all;
+}
+
+.command {
+  margin-top: 12px;
+  padding: 8px;
+  background: #ffb0000a;
+  border: 1px solid #ffb00022;
+  border-radius: 2px;
+  font-size: 11px;
+  color: #996a00;
+}
+
+.commandLabel {
+  display: block;
+  margin-bottom: 4px;
+  color: #ffb000;
+  font-weight: bold;
+}
+
+.command code {
+  color: #ffb000;
+  word-break: break-all;
+}

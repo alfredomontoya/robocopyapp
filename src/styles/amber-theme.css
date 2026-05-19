@@ -1,0 +1,76 @@
+.crt-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.crt-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+.crt-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+  z-index: 99;
+}
+
+.amber-text {
+  color: #ffb000;
+  text-shadow: 0 0 5px #ffb00088, 0 0 10px #ffb00044;
+}
+
+.amber-bright {
+  color: #ffc840;
+  text-shadow: 0 0 8px #ffc840aa, 0 0 15px #ffc84066;
+}
+
+.amber-dim {
+  color: #996a00;
+  text-shadow: none;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.97; }
+  5% { opacity: 0.95; }
+  10% { opacity: 0.9; }
+  15% { opacity: 0.95; }
+  20% { opacity: 0.99; }
+  50% { opacity: 0.95; }
+  80% { opacity: 0.9; }
+  100% { opacity: 0.97; }
+}
+
+.crt-flicker {
+  animation: flicker 0.15s infinite;
+}

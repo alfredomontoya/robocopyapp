@@ -1,0 +1,145 @@
+.card {
+  border: 1px solid #ffb00044;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 8px;
+  background: #0a0a0a;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.mode {
+  font-size: 11px;
+  color: #ffb000;
+  font-weight: bold;
+  text-shadow: 0 0 5px #ffb00088;
+}
+
+.status {
+  font-size: 11px;
+  color: #996a00;
+}
+
+.code {
+  font-size: 10px;
+  color: #664400;
+}
+
+.paths {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  margin-bottom: 6px;
+  word-break: break-all;
+}
+
+.source {
+  color: #ffb000;
+}
+
+.arrow {
+  color: #996a00;
+}
+
+.dest {
+  color: #ffc840;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  padding: 4px 0;
+}
+
+.bar {
+  color: #ffb000;
+  text-shadow: 0 0 5px #ffb00066;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.percent {
+  color: #ffc840;
+  font-weight: bold;
+  min-width: 40px;
+  text-shadow: 0 0 5px #ffc84088;
+}
+
+.output {
+  background: #00000066;
+  border: 1px solid #ffb00011;
+  padding: 4px 6px;
+  margin-bottom: 6px;
+  font-size: 10px;
+  color: #996a00;
+  max-height: 60px;
+  overflow-y: auto;
+}
+
+.line {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.waiting {
+  color: #664400;
+  font-style: italic;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.cancelBtn, .removeBtn {
+  padding: 4px 10px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 11px;
+  cursor: pointer;
+  border: 1px solid;
+  background: transparent;
+  transition: all 0.15s ease;
+}
+
+.cancelBtn {
+  border-color: #ff4444;
+  color: #ff6666;
+}
+
+.cancelBtn:hover {
+  background: #ff444422;
+  box-shadow: 0 0 5px #ff444444;
+}
+
+.removeBtn {
+  border-color: #ffb00044;
+  color: #996a00;
+}
+
+.removeBtn:hover {
+  background: #ffb00011;
+  border-color: #ffb000;
+  color: #ffb000;
+}
+
+.success {
+  border-color: #00ff0044;
+}
+
+.error {
+  border-color: #ff444444;
+}
+
+.cancelled {
+  border-color: #ffb00044;
+}

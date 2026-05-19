@@ -1,0 +1,30 @@
+.container {
+  margin: 8px 0;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.filled {
+  color: #ffb000;
+  text-shadow: 0 0 5px #ffb00044;
+  letter-spacing: 1px;
+}
+
+.percentage {
+  color: #ffc840;
+  font-weight: bold;
+  min-width: 45px;
+  text-shadow: 0 0 5px #ffc84088;
+}
+
+.label {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #996a00;
+}

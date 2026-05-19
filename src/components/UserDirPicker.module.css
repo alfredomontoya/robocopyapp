@@ -1,0 +1,107 @@
+.container {
+  margin-bottom: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 12px;
+  color: #996a00;
+  letter-spacing: 1px;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+}
+
+.smallBtn {
+  background: transparent;
+  border: 1px solid #ffb00044;
+  color: #996a00;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 10px;
+  padding: 2px 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.smallBtn:hover:not(:disabled) {
+  background: #ffb00022;
+  border-color: #ffb000;
+  color: #ffb000;
+}
+
+.smallBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: 180px;
+  overflow-y: auto;
+  border: 1px solid #ffb00022;
+  padding: 4px;
+  background: #0a0a0a;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.1s ease;
+}
+
+.item:hover {
+  background: #ffb00011;
+}
+
+.item.checked {
+  background: #ffb00018;
+}
+
+.item input[type="checkbox"] {
+  accent-color: #ffb000;
+  cursor: pointer;
+}
+
+.item input[type="checkbox"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.name {
+  font-size: 13px;
+  color: #ffb000;
+}
+
+.empty {
+  font-size: 12px;
+  color: #664400;
+  font-style: italic;
+  padding: 8px 0;
+}
+
+.count {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #996a00;
+  text-align: right;
+}
+
+.loading {
+  font-size: 11px;
+  color: #664400;
+  font-style: italic;
+}
