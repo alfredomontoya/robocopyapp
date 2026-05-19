@@ -158,4 +158,42 @@ describe('useRobocopy', () => {
 
     expect(id1).not.toBe(id2)
   })
+
+  it('should initialize task with fileCount 0', () => {
+    const { result } = renderHook(() => useRobocopy())
+
+    act(() => {
+      result.current.addTask({
+        mode: 'user',
+        source: 'C:\\Users\\test',
+        destination: 'D:\\backup\\users\\test',
+        options: ['/E'],
+      })
+    })
+
+    const tasks = result.current.getAllTasks()
+    expect(tasks[0].fileCount).toBe(0)
+  })
+
+  it('should reset fileCount when executing a task', () => {
+    const { result } = renderHook(() => useRobocopy())
+
+    let taskId = ''
+    act(() => {
+      taskId = result.current.addTask({
+        mode: 'user',
+        source: 'C:\\Users\\test',
+        destination: 'D:\\backup\\users\\test',
+        options: ['/E'],
+      })
+    })
+
+    act(() => {
+      result.current.executeTask(taskId)
+    })
+
+    const tasks = result.current.getAllTasks()
+    expect(tasks[0].fileCount).toBe(0)
+    expect(tasks[0].status).toBe('running')
+  })
 })

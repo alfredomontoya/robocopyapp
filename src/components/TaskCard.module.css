@@ -75,6 +75,12 @@
   text-shadow: 0 0 5px #ffc84088;
 }
 
+.files {
+  color: #996a00;
+  font-size: 11px;
+  margin-left: 4px;
+}
+
 .output {
   background: #00000066;
   border: 1px solid #ffb00011;

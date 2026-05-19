@@ -11,12 +11,18 @@ function generateTaskId(): string {
 function parseProgress(output: string): number {
   const lines = output.split('\n')
   for (let i = lines.length - 1; i >= 0; i--) {
-    const match = lines[i].match(/(\d+)%/)
+    const match = lines[i].match(/(\d+\.?\d*)%/)
     if (match) {
-      return parseInt(match[1])
+      return Math.round(parseFloat(match[1]))
     }
   }
   return 0
+}
+
+function countFiles(output: string): number {
+  return output.split('\n').filter(line =>
+    /[A-Z]:\\/.test(line) && !/%/.test(line) && line.trim().length > 0
+  ).length
 }
 
 export function useRobocopy() {
@@ -33,7 +39,8 @@ export function useRobocopy() {
         if (task) {
           const newOutput = task.output + data
           const progress = parseProgress(newOutput)
-          next.set(taskId, { ...task, output: newOutput, progress })
+          const fileCount = countFiles(newOutput)
+          next.set(taskId, { ...task, output: newOutput, progress, fileCount })
         }
         return next
       })
@@ -65,7 +72,7 @@ export function useRobocopy() {
     }
   }, [])
 
-  const addTask = useCallback((config: Omit<RobocopyTask, 'id' | 'status' | 'output' | 'code' | 'progress'>) => {
+  const addTask = useCallback((config: Omit<RobocopyTask, 'id' | 'status' | 'output' | 'code' | 'progress' | 'fileCount'>) => {
     const id = generateTaskId()
     const task: RobocopyTask = {
       ...config,
@@ -74,6 +81,7 @@ export function useRobocopy() {
       output: '',
       code: null,
       progress: 0,
+      fileCount: 0,
     }
 
     setTasks(prev => {
@@ -90,7 +98,7 @@ export function useRobocopy() {
       const next = new Map(prev)
       const task = next.get(taskId)
       if (task) {
-        next.set(taskId, { ...task, status: 'running', output: '', progress: 0 })
+        next.set(taskId, { ...task, status: 'running', output: '', progress: 0, fileCount: 0 })
         window.electronAPI.executeRobocopy({
           taskId,
           source: task.source,

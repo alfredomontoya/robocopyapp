@@ -15,6 +15,7 @@ export interface RobocopyTask {
   output: string
   code: number | null
   progress: number
+  fileCount: number
 }
 
 export interface ElectronAPI {

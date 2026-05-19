@@ -42,6 +42,7 @@ export function TaskCard({ task, onCancel, onRemove }: TaskCardProps) {
         <div className={styles.progress}>
           <span className={styles.bar}>[{bar}]</span>
           <span className={styles.percent}>{task.progress}%</span>
+          <span className={styles.files}>| {task.fileCount} files</span>
         </div>
       )}
       {task.status === 'success' && (

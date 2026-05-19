@@ -75,9 +75,12 @@ export function ConsolePanel({ tasks }: ConsolePanelProps) {
               <span>{activeTask.destination}</span>
             </div>
             <div className={styles.lines}>
-              {activeTask.output.split('\n').filter(Boolean).map((line, i) => (
-                <div key={i} className={styles.line}>{line}</div>
-              ))}
+              {activeTask.output.split('\n')
+                .filter(Boolean)
+                .filter(line => !/^\s*\d+\.?\d*%\s*$/.test(line))
+                .map((line, i) => (
+                  <div key={i} className={styles.line}>{line}</div>
+                ))}
               {activeTask.output === '' && (
                 <div className={styles.waiting}>Esperando inicio...</div>
               )}

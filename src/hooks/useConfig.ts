@@ -139,7 +139,6 @@ export function useConfig() {
     args.push(`/MT:${config.options.multiThread}`)
     args.push(`/W:${config.options.waitSeconds}`)
     args.push(`/R:${config.options.retries}`)
-    args.push('/NP')
     args.push('/XJ')
 
     const dirsToExclude = [...config.options.excludedDirs]
