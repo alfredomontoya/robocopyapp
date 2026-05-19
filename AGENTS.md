@@ -61,17 +61,37 @@ spawn('robocopy', [`"${source}"`, ...options], { shell: true })
 
 ## Robocopy defaults
 
-Command: `/E /ZB /MT:16 /W:1 /R:1 /NP /XJ`
+Command: `/E /ZB /MT:16 /W:1 /R:1 /XJ`
 
 - `/E` — recursive copy including empty dirs (no purge, safer than `/MIR`)
 - `/ZB` — restartable mode with backup fallback
 - `/MT:16` — 16 parallel threads
-- `/NP` — no progress percentage (cleaner output)
 - `/XJ` — exclude junction points (prevents infinite loops)
+
+**No `/NP`**: Progress percentages are emitted and parsed for the progress bar. Percentage-only lines are filtered from the console display.
 
 **Always excluded**: `AppData`, `Application Data`, `Cookies`, `Recent`, `OneDrive`, `NTUSER.DAT`, `ntuser.dat.LOG*`, `thumbs.db`, `desktop.ini`, `*.tmp`
 
 **Cache exclusion toggle** (`excludeCaches: true` by default): excludes `.cache`, `.cargo`, `.codex`, `.devdb`, `.lmstudio`, `.ollama`, `.overture`, `.quokka`, `.rustup`, `.VirtualBox`
+
+## Progress tracking
+
+The progress bar shows real-time byte progress and file count: `[████████████████████] 75% | 51 files`
+
+- `parseProgress()` in `useRobocopy.ts` extracts the last percentage from robocopy output (supports decimals like `75.3%`)
+- `countFiles()` counts lines matching `[A-Z]:\` that don't contain `%`
+- `ConsolePanel` filters out percentage-only lines (`/^\s*\d+\.?\d*%\s*$/`) from the visible console
+
+## UI components
+
+All config panels are **collapsible** and start **minimized** by default:
+
+- **DiskSelector** — Toggle shows selected disk when collapsed
+- **UserDirPicker** — Toggle shows selection count (e.g., `3/19`) when collapsed
+- **PathInput** — Toggle shows current path when collapsed
+- **ConfigPanel** — Toggle shows label only when collapsed
+
+Toggle button uses `▶` (collapsed) / `▼` (expanded) arrows.
 
 ## Two copy modes
 
@@ -89,6 +109,8 @@ User mode: user selects which `C:\Users\<name>` dirs to copy via checkboxes. Eac
 ## Console output
 
 `useConsole` caps at 50 lines (drops oldest). Auto-scrolls to bottom on every update.
+
+`ConsolePanel` filters percentage-only lines from robocopy output to keep the display clean. The percentages are still parsed for the progress bar but not shown in the console.
 
 ## Testing
 
