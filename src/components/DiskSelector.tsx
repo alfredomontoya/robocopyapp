@@ -17,7 +17,7 @@ function formatBytes(bytes: number): string {
 }
 
 export function DiskSelector({ disks, selected, onChange, disabled, loading }: DiskSelectorProps) {
-  const [expanded, setExpanded] = useState(true)
+  const [expanded, setExpanded] = useState(false)
 
   if (loading) {
     return (

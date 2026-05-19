@@ -20,7 +20,7 @@ export function UserDirPicker({
   disabled,
   loading,
 }: UserDirPickerProps) {
-  const [expanded, setExpanded] = useState(true)
+  const [expanded, setExpanded] = useState(false)
 
   if (loading) {
     return (

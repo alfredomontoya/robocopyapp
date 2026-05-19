@@ -10,7 +10,7 @@ interface PathInputProps {
 }
 
 export function PathInput({ label, value, onChange, placeholder, disabled }: PathInputProps) {
-  const [expanded, setExpanded] = useState(true)
+  const [expanded, setExpanded] = useState(false)
 
   return (
     <div className={styles.container}>
