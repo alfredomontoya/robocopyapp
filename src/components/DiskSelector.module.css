@@ -2,17 +2,59 @@
   margin-bottom: 16px;
 }
 
-.label {
+.toggle {
+  width: 100%;
+  background: #ffb00011;
+  border: 1px solid #ffb00033;
+  color: #ffb000;
+  font-family: 'Consolas', 'Courier New', monospace;
   font-size: 12px;
-  color: #996a00;
-  margin-bottom: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  text-align: left;
   letter-spacing: 1px;
+  transition: background 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle:hover:not(:disabled) {
+  background: #ffb00022;
+  border-color: #ffb00066;
+}
+
+.toggle:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.arrow {
+  color: #996a00;
+  min-width: 12px;
+}
+
+.value {
+  margin-left: auto;
+  color: #ffc840;
+  font-weight: bold;
+  text-shadow: 0 0 5px #ffc84088;
+}
+
+.error {
+  margin-left: auto;
+  color: #ff6666;
+  font-size: 11px;
 }
 
 .list {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-top: 4px;
+  border: 1px solid #ffb00022;
+  padding: 4px;
+  background: #0a0a0a;
 }
 
 .disk {
@@ -68,15 +110,4 @@
 .size {
   font-size: 10px;
   color: #664400;
-}
-
-.loading, .error {
-  font-size: 12px;
-  color: #664400;
-  font-style: italic;
-  padding: 8px 0;
-}
-
-.error {
-  color: #ff6666;
 }
