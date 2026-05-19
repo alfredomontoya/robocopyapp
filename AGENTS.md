@@ -98,3 +98,12 @@ User mode: user selects which `C:\Users\<name>` dirs to copy via checkboxes. Eac
 - **Path alias**: `@/*` works in tests via `vitest.config.ts`
 - Tests for hooks use `renderHook` from `@testing-library/react`
 - Component tests use `@testing-library/react` with CSS module class matching (use `className.match(/pattern/)` not `toHaveClass('literal')`)
+
+## Git
+
+- **Remote**: `origin` → `https://github.com/alfredomontoya/robocopyapp.git`
+- **Default branch**: `main`
+- **Tracking**: `main` tracks `origin/main`
+- **Commit style**: Conventional commits (`feat:`, `fix:`, `docs:`, `chore:`, etc.)
+- **Push**: `git push` (no force pushes to `main`)
+- **.gitignore**: excludes `node_modules/`, `dist/`, `dist-electron/`, `release/`, `*.log`, `.env*`, IDE files, `coverage/`
